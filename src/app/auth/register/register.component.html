@@ -1,0 +1,56 @@
+<div class="wrapper">
+<form action="" class="form" (ngSubmit)="submit()" [formGroup]="registerForm">
+    <div class="form-div">
+        <label for="">Username</label>
+        <input class="form-control" type="text" formControlName="username" placeholder="Enter Username">
+        <p style="color: red;" *ngIf="getControl('username')?.touched && getControl('username')?.errors?.['required'] ">Username is required</p>
+        <p style="color: red;" *ngIf="getControl('username')?.touched && !isValidUsername">Username already exists</p>
+    </div>
+
+    <div class="form-div">
+        <label for="">Password</label>
+        <input class="form-control" type="password" formControlName="password" placeholder="Enter Password">
+        <p style="color: red;" *ngIf="getControl('password')?.touched && getControl('password')?.errors?.['required'] ">Password is required</p>
+    </div>
+
+    <div class="form-div">
+        <label for="">Confirm Password</label>
+        <input class="form-control" type="password" formControlName="confirmPassword" placeholder="Confirm Password">
+        <!-- ye flag isValidPassword k help se checkPassword kia khud condition remove krke smjo -->
+        <p style="color: red;" *ngIf="getControl('confirmPassword')?.touched && getControl('confirmPassword')?.errors?.['required'] ">Confirm Password is required</p>
+        
+        <p style="color: red;" *ngIf="getControl('password')?.touched && getControl('confirmPassword')?.touched && !isValidPassword ">Passwords do not match</p>
+    </div>
+
+    <div class="form-div">
+        <label for="">Email</label>
+        <input class="form-control" type="text" formControlName="email" placeholder="Enter Email">
+        <p style="color: red;" *ngIf="getControl('email')?.touched && getControl('email')?.errors?.['required'] ">Email is required</p>
+        <p style="color: red;" *ngIf="getControl('email')?.touched && getControl('email')?.errors?.['email']">Enter proper Email</p>
+    </div>
+
+    <div class="form-div">
+        <label for="">DOB</label>
+        <div class="input-group">
+			<input
+				class="form-control"
+				placeholder="yyyy-mm-dd"
+				name="dp"
+				ngbDatepicker
+				#d="ngbDatepicker"
+                formControlName="dob"
+			/>
+			<button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar-days"></i></button>
+		</div>
+        <p style="color: red;" *ngIf="getControl('dob')?.touched && getControl('dob')?.errors?.['required'] ">DOB is required</p>
+    </div>
+
+    <div class="form-div">
+        <label for="">Bio</label>
+        <textarea class="form-control" name="" id="" formControlName="bio"></textarea>
+        <p style="color: red;" *ngIf="getControl('dob')?.touched && getControl('dob')?.errors?.['required'] ">Bio is required</p>
+    </div>
+    <!-- disabled event h...ismei hamne ye condition isValidPassword iliye dali kyuki isValidPassword ye ek flag se implement kiya hai...joki iska koi validator nhi hai isliye separately mention kia-->
+    <button type="submit" class="btn btn-primary" [disabled]="!isValidPassword || !registerForm.valid || !isValidUsername">Submit</button>
+</form>
+</div>

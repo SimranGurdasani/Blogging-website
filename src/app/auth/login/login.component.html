@@ -1,0 +1,22 @@
+<div class="login-container">
+    <form class="login-form" (ngSubmit)="submit()" [formGroup]="loginForm">
+      <h2>Login</h2>
+      <div class="form-group">
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" >
+        <p style="color: red;" *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['required']">Email is required</p>
+        <p style="color: red;" *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['email']">Enter valid email</p>
+        <!-- <p style="color: red;" *ngIf="this.loginForm.get('email')?.touched && login(this.loginForm.get('email')?.value)">Email do not exist</p> -->
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" formControlName="password"  >
+        <p style="color: red;" *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']">Password is required</p>
+        <!-- <p style="color: red;" *ngIf="this.loginForm.get('password')?.touched && login(this.loginForm.get('password')?.value)">Password do not exist</p> -->
+      </div>
+      <button type="submit"  class="btn" >Login</button>
+      <p style="color: red;" *ngIf="((this.loginForm.get('email')?.touched && this.loginForm.get('password')?.touched) && (!isValidEmail || !isValidPassword))">Invalid credentials</p>
+      <!-- <p style="color: red;" *ngIf="!isValidEmail">Login Successful</p> -->
+    </form>
+  </div>
