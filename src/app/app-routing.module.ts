@@ -7,6 +7,7 @@ import { CreateComponent } from './blog/create/create.component';
 import { ViewSingleBlogComponent } from './blog/view-single-blog/view-single-blog.component';
 import { ViewBlogsComponent } from './blog/view-blogs/view-blogs.component';
 import { HomeComponent } from './home/home.component';
+import { ToastTestComponent } from './toast-test/toast-test.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path:'home',
     component:HomeComponent
+  },
+  {
+    path:'toast-test',
+    component:ToastTestComponent
   },
   {
     path:'**', //wildcard

@@ -1,0 +1,9 @@
+<!-- <button (click)="toggleShow2()">Click</button> -->
+<!-- <ngb-toast [autohide]="false">I am simple toast</ngb-toast> -->
+<ngb-toast *ngIf="show" [autohide]="false" [header]="'Hello'" (hidden)="toggleShow()">Closable Toast</ngb-toast>
+
+<!-- step-1 btn -->
+<button class="btn btn-success" (click)="addToast()">Click</button>
+
+<app-test-toast-container class="toast-container postion-fixed top-0 end-0 p-3"></app-test-toast-container>
+<!-- button fir service mei array fir ts m value mili htmk m show  -->

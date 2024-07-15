@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DatabaseService } from 'src/app/shared/services/database.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { DatabaseService } from 'src/app/shared/services/database.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-   isValidEmail=false
-   isValidPassword=false
-  constructor(private databaseService:DatabaseService){
+   isValidEmail=true
+   isValidPassword=true
+  constructor(private databaseService:DatabaseService,private router:Router){
 
   }
   
@@ -42,8 +43,8 @@ export class LoginComponent {
   }
 
   login(loggedInUser:any){
-    this.isValidEmail = false
-    this.isValidPassword=false
+    this.isValidEmail = true
+    this.isValidPassword=true
    
     // console.log(loggedInUsersArray)
     let users =  JSON.parse(localStorage.getItem("users") ?? "[]")
@@ -54,11 +55,16 @@ export class LoginComponent {
           this.isValidEmail=true
           this.isValidPassword=true
           localStorage.setItem("loggedInUsers",JSON.stringify(this.databaseService.users))
+          this.router.navigate(['/home'])
+        }
+        else{
+          this.isValidEmail=false
+          this.isValidPassword=false
+          break
         }
       }
     
     console.log(this.isValidEmail)
     // if(this.isValidEmail)
   }
-  
 }

@@ -8,11 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthModule } from './auth/auth.module';
 import { BlogModule } from './blog/blog.module';
+import { ToastTestComponent } from './toast-test/toast-test.component';
+import { TestToastContainerComponent } from './test-toast-container/test-toast-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ToastTestComponent,
+    TestToastContainerComponent
   ],
   imports: [
     BrowserModule,
