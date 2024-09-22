@@ -1,1 +1,34 @@
 
+<div class="row justify-content-end">
+    <div class="col-2">
+        <button class="btn btn-create"
+        [routerLink]="['/create']"
+        >Create</button>
+    </div>
+</div>
+<main>
+    <section class="news-category" *ngFor="let blog of blogs">
+        <h2>{{getCategoryFromCategoryId(blog.category)}}</h2>
+        <article class="news-item" style=" position: relative;top: -20px;">
+            <div class="news-content">
+                <h3>{{blog.title}}</h3>
+                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 200px;">{{blog.description}}</p>
+                <div class="post-actions">
+                    <button class="like-btn"  *ngIf="isLiked(blog.blogid)" (click)="removeLikedBlog(blog.blogid)" (click)="addToast()"><i class="far fa-thumbs-up fa-solid" ></i>&nbsp;{{blog.noOfLikes}}</button>
+                    <button class="like-btn" *ngIf="!isLiked(blog.blogid)" (click)="getMyLikedBlogs(blog.blogid)" (click)="addToast()" ><i class="far fa-thumbs-up "  ></i>&nbsp;{{blog.noOfLikes}}</button>
+                    <button class="comment-btn"><i class="far fa-comment"></i> 11</button>
+                    <button  *ngIf="!isSaved(blog.blogid)" (click)="getMySavedBlogs(blog.blogid)" (click)="addToast()"><i class="far fa-bookmark "></i></button>
+                    <app-blog-toast-container class="toast-container postion-fixed top-0 end-0 p-3"></app-blog-toast-container>
+                    <button (click)="removeSavedBlog(blog.blogid)" *ngIf="isSaved(blog.blogid)"><i class="far fa-bookmark fa-solid " ></i></button>
+                    <button [routerLink]="['/blogs',blog.blogid]">Read More...</button>
+                </div>
+                <div class="comment-section" style="display: none;">
+                    <textarea placeholder="Add a comment..."></textarea>
+                    <button class="submit-comment">Post</button>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+            <img [src]="getImgUrl(blog.imgurl)"alt="News Image" class="news-image">
+        </article>
+    </section>
+</main>

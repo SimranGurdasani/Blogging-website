@@ -5,6 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastContainerComponent } from './toast-container/toast-container.component';
+import { RouterModule } from '@angular/router';
+import { ViewComponent } from './view/view.component';
+
 
 
 
@@ -12,13 +16,16 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    ToastContainerComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   exports:[
     LoginComponent,

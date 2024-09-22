@@ -14,8 +14,11 @@
         <p style="color: red;" *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']">Password is required</p>
         <!-- <p style="color: red;" *ngIf="this.loginForm.get('password')?.touched && login(this.loginForm.get('password')?.value)">Password do not exist</p> -->
       </div>
-      <button type="submit"  class="btn" >Login</button>
+      <button type="submit"  class="btn" (click)="addToast()" >Login</button>
+      <app-toast-container class="toast-container postion-fixed top-0 end-0 p-3"></app-toast-container>
+
       <p style="color: red;" *ngIf="( (!isValidEmail || !isValidPassword))">Invalid credentials</p>
       <!-- <p style="color: red;" *ngIf="!isValidEmail">Login Successful</p> -->
     </form>
 </div>
+<!-- <app-toast-container class="toast-container postion-fixed top-0 end-0 p-3"></app-toast-container> -->

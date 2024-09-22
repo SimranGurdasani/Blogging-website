@@ -1,0 +1,42 @@
+<div class="tab-pane fade show active" id="my-blogs" role="tabpanel" aria-labelledby="my-blogs-tab">
+    <div class="row">
+      <!-- My Blogs content here -->
+      <div class="col-md-6 mb-3" *ngFor="let blog of blogs">
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-title">Blog deletion</h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-describedby="modal-title"
+              (click)="modal.dismiss('cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong>Are you sure you want to delete <span class="text-primary">{{blog.title}}</span> profile?</strong>
+            </p>
+            <p>
+              All information associated to this blog will be permanently deleted.
+              <span class="text-danger">This operation can not be undone.</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+            <button type="button" class="btn btn-danger" (click)="modal.close(blog.blogid)" >Ok</button>
+          </div>
+        </ng-template>
+        <div class="card">
+          <img [src]="getImgUrl(blog.imgurl)"class="card-img-top w-100 blog-img" alt="Blog Post 1">
+          <div class="card-body">
+            <h5 class="card-title">{{blog.title}}</h5>
+            <p class="card-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 200px;">{{blog.description}}</p>
+            <button type="button" class="btn btn-link" [routerLink]="['/blogs',blog.blogid]">Read more</button>
+            <!-- routerLink k liye routerModule import krna and , krke baju m id paas krna i.e ',' krke jo paas krna h vo kro -->
+            <button type="button" class="btn btn-link"  [routerLink]="['/update',blog.blogid]" *ngIf="controlVisibility">Edit</button>
+            <button type="button" class="btn btn-link" (click)="open(content)" *ngIf="controlVisibility" >Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

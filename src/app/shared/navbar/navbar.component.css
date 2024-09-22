@@ -5,7 +5,7 @@
   
   .container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     /* max-width: 1200px; */
     margin: 0 auto;
@@ -44,6 +44,7 @@
     color: #fefeff; 
     text-decoration: none;
     transition: color 0.3s;
+    cursor: pointer;
   }
   
   .nav-link:hover {

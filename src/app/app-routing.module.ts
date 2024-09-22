@@ -8,39 +8,52 @@ import { ViewSingleBlogComponent } from './blog/view-single-blog/view-single-blo
 import { ViewBlogsComponent } from './blog/view-blogs/view-blogs.component';
 import { HomeComponent } from './home/home.component';
 import { ToastTestComponent } from './toast-test/toast-test.component';
+import { UpdateComponent } from './blog/update/update.component';
+import { AuthguardService } from './shared/services/authguard.service';
+
 
 const routes: Routes = [
-  {
-    path:'login',
-    component:LoginComponent
-  },
   {
     path:'register',
     component:RegisterComponent
   },
   {
-    path:'profile',
-    component:ProfileComponent
+    path:'login',
+    component:LoginComponent
   },
   {
-    path:'create',
-    component:CreateComponent
-  },
-  // {
-  //   path:'view-single-blog',
-  //   component:ViewSingleBlogComponent
-  // },
-  {
-    path:'blogs',
-    component:ViewBlogsComponent
-  },
-  {
-    path:'home',
-    component:HomeComponent
-  },
-  {
-    path:'toast-test',
-    component:ToastTestComponent
+    path:'',
+    component:HomeComponent,
+    // below is called child routing i.e hame jispe navbar,footer chahiye
+    children:[
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'create',
+        component:CreateComponent
+      },
+      {
+        // update/:id ':id' is placeholder
+        path:'update/:id',
+        component:UpdateComponent
+      },
+      {
+        path:'blogs/:id',
+        component:ViewSingleBlogComponent
+      },
+      {
+        path:'blogs',
+        component:ViewBlogsComponent
+      },
+      {
+        path:'toast-test',
+        component:ToastTestComponent
+      }
+    ],
+    // ye below hai dekhta hai ki bayi canActivate naam ka function h in AuthguardService and if checks if user is loggedin
+    canActivate:[AuthguardService]
   },
   {
     path:'**', //wildcard

@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="assets/Images/pic.png" class="rounded-circle profile-pic mb-3 " alt="Profile Picture">
+        <h2 class="profile-name">{{currentUser.username}}</h2>
+        <p class="profile-bio">Web Developer</p>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Bio</h5>
+            <p class="card-text">{{currentUser.bio}}</p>
+          </div>
+        </div>
+  
+        <ul ngbNav [(activeId)]="activeId" class="nav-tabs" #nav="ngbNav">
+          <li [ngbNavItem]="1">
+            <button ngbNavLink>My Blogs</button>
+            <ng-template ngbNavContent="nav">
+              <!-- controlVisibility if true h toh hi edit delte ka btn dikha otherwise nhi -->
+              <!-- child component ka kaam nhi h data laana usko parent se data milegi uspar loop chalega -->
+              <app-view [blogs]="myBlogs" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 200px;" (refresh)="refreshData()" [controlVisibility]="true"></app-view>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <button ngbNavLink>Saved Blogs</button>
+            <ng-template ngbNavContent="nav">
+              <app-view [blogs]="savedBlogs" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 200px;" [controlVisibility]="false"></app-view>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav"></div>
+
+       
+      </div>
+    </div>
+  </div>

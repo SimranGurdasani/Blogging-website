@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subscribe-btn {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edition-select {
+    padding: 5px;
+}
+
+
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+nav {
+    background-color: #fff;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+.news-category {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-category h2 {
+    color: #e60000;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+
+.news-content {
+    flex: 1;
+    padding-right: 15px;
+}
+
+.news-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.comment-section {
+    margin-top: 10px;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.submit-comment {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.blog-post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.blog-post .post-actions {
+    margin-top: 15px;
+}
+
+.blog-post .comment-section {
+    margin-top: 20px;
+}
+
+
+.btn-create {
+    padding: 0.5rem 1rem;
+    background-color: #1E90FF; 
+    color: #fefeff; 
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 1rem;
+  }
+  
+  .btn-create:hover {
+    background-color: #011638;
+    border: #fefeff;
+    color: #fefeff;
+  }

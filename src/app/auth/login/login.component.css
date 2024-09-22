@@ -8,6 +8,10 @@ body {
     align-items: center;
     height: 100vh;
   }
+
+  .bg-success{
+    background-color: green;
+  }
   
   .login-container {
     background-color: #011638; 

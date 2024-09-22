@@ -1,0 +1,6 @@
+<ngb-toast
+*ngFor="let toast of toastService.toasts"
+[class]="toast.className"
+[delay]="toast.delay"
+[header]="'Hello'"
+>{{toast.text}}</ngb-toast>

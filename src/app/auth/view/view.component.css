@@ -1,0 +1,22 @@
+.btn-link {
+    color: #011638;
+    text-decoration: none;
+  }
+  
+  .btn-link:hover {
+    text-decoration: underline;
+  }
+  
+  .blog-img {
+    width: 330px;
+    height: 300px;
+  }
+  
+  .bi-pencil-square {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+  .edit-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+  }

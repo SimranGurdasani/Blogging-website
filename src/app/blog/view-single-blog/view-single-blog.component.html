@@ -1,1 +1,45 @@
-<p>view-single-blog works!</p>
+
+  <div class="blog-container" *ngIf="viewBlog" >
+    <article class="blog-post" >
+      <header class="post-header">
+        <h1 class="post-title">{{viewBlog.title}}</h1>
+        <div class="post-meta">
+          <span class="post-author">By <a href="#">{{author.username}}</a></span>
+          <span class="post-date">Published on {{viewBlog.createdAt | date :"medium"}}"</span>
+          <span class="post-update">Updated at {{viewBlog.updatedAt | date:"medium"}}</span>
+          <span class="post-read-time">8 min read</span>
+        </div>
+      </header>
+  
+      <div class="post-image">
+        <img [src]="getImgUrl(viewBlog.imgurl)" alt="" />
+      </div>
+  
+      <div class="post-content">
+        <p>{{viewBlog.description}}</p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis hic dignissimos est delectus ipsa, sequi reprehenderit voluptatem ducimus dolore, ab nesciunt voluptatibus eveniet vero itaque, laudantium illo sit laboriosam a minus repellat quos nobis animi! Fugiat, facere. Reprehenderit, fuga! Quos nobis, deserunt harum amet blanditiis suscipit soluta? Totam magnam itaque placeat voluptates eius, quidem id ea? Repellat, et! Voluptas numquam deserunt maxime laborum odit dolorum minima repellendus possimus. Totam aliquid mollitia recusandae quos nisi aut autem soluta possimus officia iusto!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis hic dignissimos est delectus ipsa, sequi reprehenderit voluptatem ducimus dolore, ab nesciunt voluptatibus eveniet vero itaque, laudantium illo sit laboriosam a minus repellat quos nobis animi! Fugiat, facere. Reprehenderit, fuga! Quos nobis, deserunt harum amet blanditiis suscipit soluta? Totam magnam itaque placeat voluptates eius, quidem id ea? Repellat, et! Voluptas numquam deserunt maxime laborum odit dolorum minima repellendus possimus. Totam aliquid mollitia recusandae quos nisi aut autem soluta possimus officia iusto!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis hic dignissimos est delectus ipsa, sequi reprehenderit voluptatem ducimus dolore, ab nesciunt voluptatibus eveniet vero itaque, laudantium illo sit laboriosam a minus repellat quos nobis animi! Fugiat, facere. Reprehenderit, fuga! Quos nobis, deserunt harum amet blanditiis suscipit soluta? Totam magnam itaque placeat voluptates eius, quidem id ea? Repellat, et! Voluptas numquam deserunt maxime laborum odit dolorum minima repellendus possimus. Totam aliquid mollitia recusandae quos nisi aut autem soluta possimus officia iusto!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis hic dignissimos est delectus ipsa, sequi reprehenderit voluptatem ducimus dolore, ab nesciunt voluptatibus eveniet vero itaque, laudantium illo sit laboriosam a minus repellat quos nobis animi! Fugiat, facere. Reprehenderit, fuga! Quos nobis, deserunt harum amet blanditiis suscipit soluta? Totam magnam itaque placeat voluptates eius, quidem id ea? Repellat, et! Voluptas numquam deserunt maxime laborum odit dolorum minima repellendus possimus. Totam aliquid mollitia recusandae quos nisi aut autem soluta possimus officia iusto!</p> -->
+      </div>
+  
+      <footer class="post-footer">
+        <div class="social-actions">
+          <button class="action-btn like-btn" aria-label="Like this post">
+           <i class="far fa-thumbs-up"></i> Like
+        </button>
+          <button class="action-btn share-btn" aria-label="Share this post">
+            <i class="far fa-comment"></i> Comment
+          </button>
+          <button class="action-btn save-btn" aria-label="Save this post">
+            <i class="far fa-bookmark"></i> Save
+          </button>
+
+          <button class="action-btn save-btn" aria-label="Save this post">
+            <i class="fas fa-share"></i> Share
+          </button>
+
+        </div>
+      </footer>
+    </article>
+  </div>

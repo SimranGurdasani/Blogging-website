@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from 'src/app/shared/services/database.service';
+import { TestToastService } from '../../test-toast.service';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,9 @@ import { DatabaseService } from 'src/app/shared/services/database.service';
 export class LoginComponent {
    isValidEmail=true
    isValidPassword=true
-  constructor(private databaseService:DatabaseService,private router:Router){
+   loggedInUserId:any
+  showToast!: boolean;
+  constructor(private databaseService:DatabaseService,private router:Router,private toastService:TestToastService){
 
   }
   
@@ -51,20 +55,33 @@ export class LoginComponent {
     
       for(let user of users){
         if(user.email === loggedInUser.email && user.password === loggedInUser.password){
-          // console.log(user.email)
           this.isValidEmail=true
           this.isValidPassword=true
-          localStorage.setItem("loggedInUsers",JSON.stringify(this.databaseService.users))
-          this.router.navigate(['/home'])
+          localStorage.setItem("loggedInUsers",JSON.stringify(this.databaseService.loggedInUsers))
+          this.loggedInUserId=user.id
+          break;
         }
         else{
           this.isValidEmail=false
           this.isValidPassword=false
-          break
         }
       }
-    
-    console.log(this.isValidEmail)
-    // if(this.isValidEmail)
+
+      if(this.isValidEmail && this.isValidPassword){
+        this.showToast=true
+      }
+
+      if(this.isValidEmail && this.isValidPassword){
+        this.databaseService.loggedInUserId=this.loggedInUserId
+        localStorage.setItem("loggedInUserId",this.loggedInUserId.toString())
+        this.router.navigate(["/home"])
+      }
+
+      this.toastService.show("Login successful",{classname:'bg-success',delay:5000})
+      this.router.navigate(['/blogs'])
+  }
+
+  addToast(){
+    this.toastService.show("Login Successful",{className:'bg-success',delay:5000})
   }
 }

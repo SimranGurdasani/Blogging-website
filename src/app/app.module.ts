@@ -30,4 +30,6 @@ import { TestToastContainerComponent } from './test-toast-container/test-toast-c
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
